@@ -1,20 +1,20 @@
-import {IPeopleState, LoadingState} from "./contracts/state";
-import {IFetchPeopleData, ISetLoadingState, ISetPeopleData, PeopleActionTypes} from "./contracts/actionTypes";
+import {IInfo} from "./contracts/state";
+import {IFetchInfoData, ISetLoadingState, ISetInfoData, InfoActionTypes} from "./contracts/actionTypes";
+import { LoadingState } from "../peoples/contracts/state";
 
-export const setPeople = (payload: IPeopleState["data"]): ISetPeopleData => ({
-    type: PeopleActionTypes.SET_PEOPLE_DATA,
+export const setInfo = (payload: IInfo): ISetInfoData => ({
+    type: InfoActionTypes.SET_INFO_DATA,
     payload
 })
 
-export const fetchPeople = (): IFetchPeopleData => {
-    return(
-        {type: PeopleActionTypes.FETCH_PEOPLE_DATA}
-    )
-}
+export const fetchInfo = (payload: string): IFetchInfoData => ({
+    type: InfoActionTypes.FETCH_INFO_DATA,
+    payload
+})
 
 export const setLoadingState = (payload: LoadingState): ISetLoadingState => ({
-    type: PeopleActionTypes.SET_LOADING_STATE,
+    type: InfoActionTypes.SET_LOADING_STATE,
     payload
 })
 
-export type PeoplesAction = ISetPeopleData | IFetchPeopleData | ISetLoadingState;
+export type InfoAction = ISetInfoData | IFetchInfoData | ISetLoadingState;

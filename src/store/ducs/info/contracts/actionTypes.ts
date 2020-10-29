@@ -1,22 +1,24 @@
 import {Action} from "redux";
-import { IPeopleState, LoadingState } from "./state";
+import {IInfo, IInfoState} from "./state";
+import { LoadingState } from "../../peoples/contracts/state";
 
-export enum PeopleActionTypes {
-    FETCH_PEOPLE_DATA = "PEOPLE/FETCH_PEOPLE_DATA",
-    SET_PEOPLE_DATA = "PEOPLE/SET_PEOPLE_DATA",
-    SET_LOADING_STATE = "PEOPLE/SET_LOADING_STATE",
+export enum InfoActionTypes {
+    FETCH_INFO_DATA = "INFO/FETCH_INFO_DATA",
+    SET_INFO_DATA = "INFO/SET_INFO_DATA",
+    SET_LOADING_STATE = "INFO/SET_LOADING_STATE",
 }
 
-export interface IFetchPeopleData extends Action<PeopleActionTypes>{
-    type: PeopleActionTypes.FETCH_PEOPLE_DATA;
+export interface IFetchInfoData extends Action<InfoActionTypes>{
+    type: InfoActionTypes.FETCH_INFO_DATA;
+    payload: string;
 }
 
-export interface ISetPeopleData extends Action<PeopleActionTypes>{
-    type: PeopleActionTypes.SET_PEOPLE_DATA;
-    payload: IPeopleState["data"];
+export interface ISetInfoData extends Action<InfoActionTypes>{
+    type: InfoActionTypes.SET_INFO_DATA;
+    payload: IInfo;
 }
 
-export interface ISetLoadingState extends Action<PeopleActionTypes>{
-    type: PeopleActionTypes.SET_LOADING_STATE;
+export interface ISetLoadingState extends Action<InfoActionTypes>{
+    type: InfoActionTypes.SET_LOADING_STATE;
     payload: LoadingState;
 }

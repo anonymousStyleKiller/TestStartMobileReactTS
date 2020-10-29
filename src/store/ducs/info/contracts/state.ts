@@ -1,11 +1,6 @@
-export enum LoadingState {
-    LOADING = "PEOPLES/LOADING",
-    LOADED = "PEOPLES/LOADED",
-    ERROR = "PEOPLES/ERROR",
-    NEVER = "PEOPLES/NEVER",
-}
+import { LoadingState } from "../../peoples/contracts/state";
 
-export interface IPeople {
+export interface IInfo {
     _id: string;
     fullname: string;
     username: string;
@@ -13,7 +8,7 @@ export interface IPeople {
     text: string;
 }
 
-export interface IPeopleState {
-    data: IPeople[],
+export interface IInfoState {
+    data: IInfo[],
     loadingState: LoadingState,
 }

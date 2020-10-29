@@ -1,27 +1,29 @@
 import {Draft, produce} from "immer";
-import {IPeopleState, LoadingState} from "./contracts/state";
-import {PeoplesAction} from "./actionCreators";
-import { PeopleActionTypes } from "./contracts/actionTypes";
+import {IInfoState} from "./contracts/state";
+import {InfoAction} from "./actionCreators";
+import {InfoActionTypes} from "./contracts/actionTypes";
+import {LoadingState} from "../peoples/contracts/state";
 
-const initialPeopleState: IPeopleState = {
+const initialInfoState: IInfoState = {
     data: [],
     loadingState: LoadingState.NEVER,
 }
 
-export const peopleReducer = produce((draft: Draft<IPeopleState>, action: PeoplesAction) =>{
+export const infoReducer = produce((draft: Draft<IInfoState>, action: InfoAction) => {
     switch (action.type) {
-        case PeopleActionTypes.FETCH_PEOPLE_DATA:
+        case InfoActionTypes.FETCH_INFO_DATA:
             draft.data = [];
             draft.loadingState = LoadingState.LOADED;
             break;
-        case PeopleActionTypes.SET_PEOPLE_DATA:
+        case InfoActionTypes.SET_INFO_DATA:
+            // @ts-ignore
             draft.data = action.payload;
             draft.loadingState = LoadingState.LOADING;
             break;
-        case PeopleActionTypes.SET_LOADING_STATE:
+        case InfoActionTypes.SET_LOADING_STATE:
             draft.loadingState = action.payload;
             break;
         default:
             break;
     }
-}, initialPeopleState)
+}, initialInfoState)

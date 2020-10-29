@@ -1,18 +1,18 @@
 import {call, put, takeEvery} from 'redux-saga/effects'
 import {Api} from '../../../services/peopleApi';
-import {setLoadingState, setPeople} from './actionCreators';
-import {PeopleActionTypes} from "./contracts/actionTypes";
-import {LoadingState} from "./contracts/state";
+import { LoadingState } from '../peoples/contracts/state';
+import {setLoadingState, setInfo} from './actionCreators';
+import {IFetchInfoData, InfoActionTypes} from "./contracts/actionTypes";
 
- function* fetchPeople() {
+ function* fetchInfo({payload: id}:IFetchInfoData) {
     try{
-        const items = yield call(Api.fetchPeople);
-        yield put(setPeople(items));
+        const items = yield call(Api.fetchInfo, id);
+        yield put(setInfo(items));
     }catch (e){
         yield put(setLoadingState(LoadingState.ERROR));
     }
 }
 
-export function* peoplesSaga() {
-    yield takeEvery(PeopleActionTypes.FETCH_PEOPLE_DATA,  fetchPeople);
+export function* infoSaga() {
+    yield takeEvery(InfoActionTypes.FETCH_INFO_DATA,  fetchInfo);
 }
