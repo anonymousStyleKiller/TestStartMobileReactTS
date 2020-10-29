@@ -27,7 +27,7 @@ const PeopleList = (): React.ReactElement => {
 
     React.useEffect(() => {
         dispatch(fetchPeople());
-    }, [dispatch, fetchPeople]);
+    }, [dispatch]);
 
     return (<>
         {!isLoading ?

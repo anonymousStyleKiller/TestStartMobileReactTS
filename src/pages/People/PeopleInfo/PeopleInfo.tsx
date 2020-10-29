@@ -29,7 +29,7 @@ export const PeopleInfo: React.FC = (): React.ReactElement | null => {
         if (id) {
             dispatch(fetchInfo(id));
         }
-    }, [dispatch, fetchInfo, id]);
+    }, [dispatch, id]);
 
     return (
         <>
