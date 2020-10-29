@@ -1,7 +1,8 @@
 {
-  "name": "test",
+  "name": "testing",
   "version": "0.1.0",
   "private": true,
+  "home": "https://anonymousstylekiller.github.io/TestStartMobileReactTS/",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
@@ -29,7 +30,9 @@
     "start": "concurrently \"react-scripts start\" \"json-server --watch public/db.json --port 3001\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build"
   },
   "proxy": "http://localhost:3001",
   "eslintConfig": {
